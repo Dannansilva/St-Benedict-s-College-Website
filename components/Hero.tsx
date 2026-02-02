@@ -14,7 +14,7 @@ export default function Hero() {
         className="absolute inset-0 bg-[url('/hero.jpg')] bg-cover bg-center"
       />
 
-      <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 backdrop-blur-[1px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 60 }}
@@ -23,7 +23,8 @@ export default function Hero() {
         className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white"
       >
         <h1 className="text-5xl md:text-7xl font-bold">
-          Welcome to <span className="text-green-400">St. Benedict’s College</span>
+          Welcome to{" "}
+          <span className="text-green-400">St. Benedict’s College</span>
         </h1>
 
         <p className="mt-6 text-lg md:text-2xl text-white/80">
