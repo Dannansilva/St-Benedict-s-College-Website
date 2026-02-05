@@ -132,6 +132,7 @@ export function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <NavLink href="/news">News</NavLink>
             <NavLink href="/resources">Resources</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </div>
@@ -252,6 +253,12 @@ export function Navbar() {
                   </div>
                 </div>
 
+                <MobileLink
+                  href="/news"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  News
+                </MobileLink>
                 <MobileLink
                   href="/resources"
                   onClick={() => setMobileMenuOpen(false)}
