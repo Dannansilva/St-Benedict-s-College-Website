@@ -1,137 +1,238 @@
-import { Navbar } from '@/components/navbar';
-import { Footer } from '@/components/footer';
-import { Card } from '@/components/ui/card';
+"use client";
+
+import { motion } from "framer-motion";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { BookOpen, Calendar, MapPin, Users, Award } from "lucide-react";
 
 export default function HistoryPage() {
-  const milestones = [
+  const fadeIn = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6 },
+  };
+
+  const historySections = [
     {
-      year: '1865',
-      title: 'Foundation',
-      description: 'St. Benedict\'s College is established as a Catholic educational institution in Colombo.',
+      title: "Before St. Benedict's College...",
+      content: (
+        <>
+          <p className="mb-4">
+            Sir Alexander Johnston encouraged the establishment of an English
+            school for the Catholic community in Ceylon, but it wasn't until
+            Ceylon became a new Vicariate Apostolic in 1834 that significant
+            progress was made. The reorganization of education after the
+            Colebrooke Reforms and the creation of the Colombo Vicariate sparked
+            enthusiasm for English education among Catholics.
+          </p>
+          <p className="mb-4">
+            In 1837, St Robert Wilmot Horton donated £50 to support the first
+            Catholic English school. On May 15, 1839, the Roman Catholic
+            Seminary, which would later become St. Benedict's College, was
+            opened in Wolfendhal Street by Rt. Rev. Dr. Vicente do Rosario. The
+            Seminary aimed to provide superior English education and had
+            vice-patrons including Rev. Fathers Sebastian Pereira and Caetano
+            Antonio.
+          </p>
+          <p>
+            A school committee was formed with J.P. Misso as President and J.
+            Sansoni as Vice President. The first principal was M. Lennon,
+            assisted by Don Domingo and J. Andriesz. Initially, the Seminary had
+            three teachers and eighty students, offering a curriculum that
+            included English, reading, writing, grammar, arithmetic, algebra,
+            geometry, history, geography, chronology, Greek, Latin, and
+            Sinhalese.
+          </p>
+        </>
+      ),
+      icon: <BookOpen className="w-6 h-6" />,
+      year: "1834 - 1839",
     },
     {
-      year: '1900',
-      title: 'Early Growth',
-      description: 'The college expands facilities and establishes itself as a premier educational institution.',
+      title: "The Establishment of the College",
+      content: (
+        <>
+          <p className="mb-4">
+            During the Interregnum, the foundation stone for a new institution,
+            St. Benedict's College, was laid. The Silvestro-Benedictines
+            designed the college buildings in the style of an Italian
+            Benedictine Monastery, featuring a rectangular structure with a
+            ground floor enclosing a courtyard. This elegant, compact building
+            served as both a monastery and an educational establishment.
+          </p>
+          <p>
+            While the school was under construction, Silani traveled to Kotar,
+            India, where he received his episcopal consecration from Dr.
+            Valerga. The buildings were completed in 1866, and in 1868, H. P.
+            Sules relocated with the Seminary pupils to the new facility. That
+            year, the new buildings housed 300 boys and 170 girls from the
+            English and Sinhalese schools.
+          </p>
+        </>
+      ),
+      icon: <MapPin className="w-6 h-6" />,
+      year: "1866 - 1868",
     },
     {
-      year: '1950',
-      title: 'Post-War Development',
-      description: 'Continued growth and modernization following independence of Sri Lanka.',
+      title: "Arrival of De La Salle Brothers",
+      content: (
+        <>
+          <p className="mb-4">
+            In December 1866, three De La Salle Brothers—Hidulphus, Ulfin
+            Daniel, and Hermelord Leo—arrived at Galle during their return
+            journey to France from Mangalore. Silani persuaded them to stay and
+            manage St. Benedict's College. They informed Silani that another
+            Brother, an Irishman who could serve as the "Professor of English,"
+            was expected to arrive soon.
+          </p>
+          <p className="mb-4">
+            Brother Hidulphus became the Director of the community of three
+            Brothers and Headmaster of the College. He announced St. Benedict's
+            Institution in the Colombo Examiner on January 16, 1867.
+          </p>
+          <p>
+            On May 1, 1868, a new group of Brothers, led by Brother Pastoris,
+            the Provincial for the Far East and temporary Director, officially
+            took charge of St. Benedict's. According to the admission register,
+            the College had 204 pupils enrolled.
+          </p>
+        </>
+      ),
+      icon: <Users className="w-6 h-6" />,
+      year: "1866 - 1868",
     },
     {
-      year: '1980',
-      title: 'Academic Excellence',
-      description: 'Recognition for academic excellence and consistent production of high achievers.',
+      title: "First Official Director",
+      content: (
+        <>
+          <p>
+            Brother Pastoris returned to France on October 10, 1868. The first
+            official Director of St. Benedict's was Brother Modeste Marie, a
+            German who had arrived in the East in 1866 as a La Sallian
+            Missionary.
+          </p>
+        </>
+      ),
+      icon: <Award className="w-6 h-6" />,
+      year: "1868",
     },
     {
-      year: '2000',
-      title: 'Millennium Growth',
-      description: 'Introduction of modern technology and contemporary teaching methodologies.',
-    },
-    {
-      year: '2025',
-      title: 'Modern Era',
-      description: 'Continuing tradition of excellence with state-of-the-art facilities and innovative education.',
+      title: "The Journey So Far...",
+      content: (
+        <>
+          <p className="mb-4">
+            <strong>1880:</strong> Brother Gabriel Archangel became Director,
+            introducing new classrooms and achieving academic milestones in the
+            Cambridge Junior Local Examination.
+          </p>
+          <p className="mb-4">
+            <strong>1887:</strong> Brother Maurice Josephus, the first American
+            Director, succeeded Brother Gabriel, overseeing the transition to
+            'St. Benedict's College' and its first Cambridge Senior Examination
+            successes. In 1888, he organized religious solemnities for the
+            Beatification of John Baptist de La Salle.
+          </p>
+          <p className="mb-4">
+            <strong>1909:</strong> Brother Camillus Eugene assumed duties,
+            enhancing the College's prestige with impressive academic results,
+            particularly in Science and Mathematics.
+          </p>
+          <p className="mb-4">
+            <strong>1931:</strong> Brother Luke Gregory, the first Ceylonese
+            Director, oversaw the construction of a three-story building and
+            initiated work on a playground. Returning in 1943, he re-organized
+            the College post-war, maintaining its reputation and ideals.
+          </p>
+        </>
+      ),
+      icon: <Calendar className="w-6 h-6" />,
+      year: "1880 - 1943",
     },
   ];
 
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-background">
+      <main className="min-h-screen bg-background font-sans">
         {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">College History</h1>
-            <p className="text-lg opacity-90">
-              160 years of educational excellence
-            </p>
+        <section className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-green-950">
+          <div className="absolute inset-0 opacity-20 bg-[url('/img/Logoandschool.png')] bg-cover bg-center mix-blend-overlay" />
+          <div className="absolute inset-0 bg-linear-to-b from-green-900/40 to-background/90" />
+
+          <div className="container relative z-10 text-center px-4 pt-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Badge className="mb-4 bg-white/10 text-white hover:bg-white/20 border-white/20 px-4 py-1 text-sm uppercase tracking-widest backdrop-blur-sm">
+                160+ Years of Excellence
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                Our Rich Heritage
+              </h1>
+              <p className="text-lg md:text-xl text-green-100 max-w-2xl mx-auto font-light leading-relaxed">
+                From humble beginnings in 1865 to a premier Catholic
+                institution, rooted in Faith, Culture, and Morals.
+              </p>
+            </motion.div>
           </div>
         </section>
 
-        {/* Main Content */}
-        <section className="py-16 md:py-24 bg-background">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-16">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                St. Benedict's College has been a beacon of educational excellence for over 160 years. From its humble beginnings in 1865 to its present status as a premier Catholic institution, the college has maintained an unwavering commitment to holistic education and Christian values.
-              </p>
-            </div>
+        {/* Narrative Content */}
+        <section className="py-16 md:py-24 relative">
+          <div className="container mx-auto px-4 max-w-5xl">
+            {/* Vertical Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-green-100 dark:bg-green-900/30 -ml-0.5 md:ml-0 hidden md:block" />
 
-            {/* Timeline */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Timeline</h2>
-              <div className="relative">
-                {/* Timeline line */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-primary/20" />
+            <div className="space-y-16 md:space-y-32">
+              {historySections.map((section, idx) => (
+                <motion.div
+                  key={idx}
+                  {...fadeIn}
+                  className={`flex flex-col md:flex-row gap-8 items-start relative ${
+                    idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Timeline Dot (Desktop) */}
+                  <div className="absolute left-1/2 top-0 -ml-4 w-8 h-8 rounded-full bg-green-500 border-4 border-background z-10 hidden md:flex items-center justify-center text-white shadow-lg">
+                    <div className="w-2 h-2 bg-white rounded-full" />
+                  </div>
 
-                {/* Timeline items */}
-                <div className="space-y-8 md:space-y-12">
-                  {milestones.map((milestone, idx) => (
+                  {/* Content Card */}
+                  <div
+                    className={`flex-1 w-full ${idx % 2 === 0 ? "md:text-right" : "md:text-left"}`}
+                  >
                     <div
-                      key={milestone.year}
-                      className={`flex gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                      className={`flex items-center gap-3 mb-4 ${idx % 2 === 0 ? "md:justify-end" : "md:justify-start"}`}
                     >
-                      <div className="flex-1 md:flex-1">
-                        <Card className="p-6">
-                          <p className="text-sm font-bold text-primary mb-1">{milestone.year}</p>
-                          <h3 className="text-xl font-bold text-foreground mb-2">
-                            {milestone.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm">{milestone.description}</p>
-                        </Card>
-                      </div>
-                      <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
-                        {milestone.year.slice(-2)}
-                      </div>
-                      <div className="flex-1" />
+                      <span className="text-sm font-bold tracking-wider text-green-600 dark:text-green-400 uppercase bg-green-100 dark:bg-green-900/40 px-3 py-1 rounded-full">
+                        {section.year}
+                      </span>
                     </div>
-                  ))}
-                </div>
-              </div>
+
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight">
+                      {section.title}
+                    </h2>
+
+                    <div className="prose prose-green dark:prose-invert max-w-none text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </div>
+                  </div>
+
+                  {/* Spacer for timeline alignment */}
+                  <div className="hidden md:block flex-1" />
+                </motion.div>
+              ))}
             </div>
 
-            {/* Key Achievements */}
-            <div className="mb-16 pt-16 border-t border-border">
-              <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-                Key Achievements
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {[
-                  'Oldest Catholic school in the Archdiocese of Colombo',
-                  'Consistent production of national achievers and leaders',
-                  'Established strong sports and cultural programs',
-                  'Recognized for academic excellence across decades',
-                  'Developed innovative teaching methodologies',
-                  'Built modern educational facilities and infrastructure',
-                  'Strong alumni network across professions',
-                  'Maintained Christian values and moral education',
-                ].map((achievement) => (
-                  <Card key={achievement} className="p-6">
-                    <p className="text-muted-foreground flex gap-3">
-                      <span className="text-primary font-bold text-xl flex-shrink-0">★</span>
-                      <span>{achievement}</span>
-                    </p>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            {/* Heritage */}
-            <div className="bg-primary/5 border border-primary/20 rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Our Heritage</h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  For over 160 years, St. Benedict's College has stood as a symbol of educational excellence and Christian values in Sri Lanka. Built on the foundation of the Lasallian tradition, the college continues to shape young minds and hearts.
-                </p>
-                <p>
-                  The college's commitment to Religio, Mores, and Cultura has remained constant through changing times. Each generation of students has benefited from the dedication of our educators and the supportive school community.
-                </p>
-                <p>
-                  Today, St. Benedict's College remains true to its founding principles while embracing modern education methodologies and technologies. Our heritage is not just about celebrating the past, but about building an even stronger future for our students.
-                </p>
-              </div>
+            <div className="mt-24 text-center pt-12 border-t border-border">
+              <p className="text-sm text-muted-foreground italic">
+                Sources: New York Old Bens Website
+              </p>
             </div>
           </div>
         </section>
