@@ -159,7 +159,7 @@ export default function HistoryPage() {
       <main className="min-h-screen bg-background font-sans">
         {/* Hero Section */}
         <section className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-green-950">
-          <div className="absolute inset-0 opacity-20 bg-[url('/img/Logoandschool.png')] bg-cover bg-center mix-blend-overlay" />
+          <div className="absolute inset-0 opacity-85 bg-[url('/img/oldschool.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-linear-to-b from-green-900/40 to-background/90" />
 
           <div className="container relative z-10 text-center px-4 pt-10">
@@ -174,7 +174,7 @@ export default function HistoryPage() {
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
                 Our Rich Heritage
               </h1>
-              <p className="text-lg md:text-xl text-green-100 max-w-2xl mx-auto font-light leading-relaxed">
+              <p className="text-lg md:text-xl dark:bg-green-900/30 max-w-2xl mx-auto font-light leading-relaxed">
                 From humble beginnings in 1865 to a premier Catholic
                 institution, rooted in Faith, Culture, and Morals.
               </p>
